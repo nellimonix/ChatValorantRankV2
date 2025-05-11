@@ -1,8 +1,10 @@
-const express = require("express");
+// Fix for ESM modules in Vercel deployment
+import express from 'express';
+import fetch from 'node-fetch';
+import { HenrikDevValorantAPI } from 'unofficial-valorant-api';
+
 const app = express();
-const port = 3000;
-const fetch = require("node-fetch");
-const HenrikDevValorantAPI = require("unofficial-valorant-api");
+const port = process.env.PORT || 3000;
 const vapi = new HenrikDevValorantAPI(process.env.HENRIK_ADVANCE_KEY);
 
 const github = "https://github.com/yash1441/Chat-Valorant-Rank/";
@@ -91,7 +93,13 @@ app.get("/valorant-puuid/:region?/:puuid", async (req, res, next) => {
 	}
 });
 
+// Health check endpoint for Vercel
+app.get("/health", (req, res) => {
+	res.status(200).send("OK");
+});
+
 app.listen(port, () => {
+	console.log(`Server running on port ${port}`);
 	sendMessage(`Logged in.`);
 });
 
@@ -129,6 +137,12 @@ function formatRankData(query, name, tag, rankData) {
 }
 
 async function sendMessage(message, retries = 3, delay = 1000) {
+	// Skip if webhook is not defined
+	if (!process.env.WEBHOOK) {
+		console.log(message);
+		return;
+	}
+	
 	try {
 		const response = await fetch(process.env.WEBHOOK, {
 			method: "POST",
@@ -160,3 +174,5 @@ async function sendMessage(message, retries = 3, delay = 1000) {
 		console.error("Error sending message:", error);
 	}
 }
+
+export default app;
