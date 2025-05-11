@@ -1,13 +1,13 @@
-// Fix for ESM modules in Vercel deployment
-import express from 'express';
-import fetch from 'node-fetch';
-import { HenrikDevValorantAPI } from 'unofficial-valorant-api';
+// Using CommonJS syntax for Vercel deployment
+const express = require('express');
+const fetch = require('node-fetch');
+const HenrikDevValorantAPI = require('unofficial-valorant-api');
 
 const app = express();
 const port = process.env.PORT || 3000;
 const vapi = new HenrikDevValorantAPI(process.env.HENRIK_ADVANCE_KEY);
 
-const github = "https://github.com/nellimonix/ChatValorantRankV2";
+const github = "https://github.com/yash1441/Chat-Valorant-Rank/";
 const cache = {};
 
 app.get("/", (req, res) => {
@@ -175,4 +175,5 @@ async function sendMessage(message, retries = 3, delay = 1000) {
 	}
 }
 
-export default app;
+// For Vercel serverless functions
+module.exports = app;
