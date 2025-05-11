@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const vapi = new HenrikDevValorantAPI(process.env.HENRIK_ADVANCE_KEY);
 
-const github = "https://github.com/yash1441/Chat-Valorant-Rank/";
+const github = "https://github.com/nellimonix/ChatValorantRankV2/";
 const cache = {};
 
 app.get("/", (req, res) => {
