@@ -1,20 +1,28 @@
 {
-  "name": "nodejs",
+  "name": "chat-valorant-rank",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for fetching Valorant rank for streaming platforms like Twitch, YouTube, etc.",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "valorant",
+    "api",
+    "twitch",
+    "rank",
+    "streaming"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
-    "fs": "^0.0.1-security",
-    "http": "^0.0.1-security",
     "node-fetch": "^3.2.6",
-    "path": "^0.12.7",
     "unofficial-valorant-api": "^2.3.0-stable.0"
   }
 }
