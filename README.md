@@ -4,7 +4,8 @@ This API lets you fetch your rank dynamically, typically for making **!rank** co
 
 ## Usage
 Visit [Chat-Valorant-Rank Generator](https://valorantrank.llimonix.pw/) and select the options as per your requirements and press **Generate**. This will create a link for you to copy and use in whichever bot's custom command you want to.
-![CVR](https://github.com/user-attachments/assets/d90bea90-5755-4261-8e29-6600a56a6c3b)
+![image](https://github.com/user-attachments/assets/0b874ba4-5f13-4107-9ca7-d24ec70f76f1)
+
 
 ## PUUID Mode
 This mode allows you to use your PUUID rather than your name and tag to fetch your rank. Using this method is better if you keep changing your name or tag and do not want to constantly update your command. This is also a more reliable way in general to fetch your rank. Currently, I don't have a direct method to tell you your PUUID but feel free to [add my discord bot](https://discord.com/oauth2/authorize?client_id=631824500228620289) or join my discord server from below, and use the `/valo account` command to get your PUUID.
